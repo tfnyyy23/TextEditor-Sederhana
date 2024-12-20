@@ -294,7 +294,7 @@ void insertAt(List &L, address P, int position) {
     }
 }
 
-// Fungsi untuk menghapus elemen pertama dengan dukungan undo
+// Prosedur untuk menghapus elemen pertama dengan undo
 void deleteFirstWithUndo(List &L, Stack &undoStack) {
     if (L.first == NIL) { // Jika list kosong
         cout << "  | List kosong!" << endl;

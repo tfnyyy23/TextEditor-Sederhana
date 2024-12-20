@@ -1,12 +1,12 @@
 # depslib dependency file v1.0
-1734457477 source:d:\tp_strukdat\tubes\main.cpp
+1734662126 source:d:\tp_strukdat\tubes\main.cpp
 	<iostream>
 	"tubes.h"
 
 1734378902 d:\tp_strukdat\tubes\tubes.h
 	<iostream>
 
-1734456891 source:d:\tp_strukdat\tubes\tubes.cpp
+1734661655 source:d:\tp_strukdat\tubes\tubes.cpp
 	<iostream>
 	"tubes.h"
 

@@ -94,11 +94,12 @@ int main() {
             cout << "\n  >> ";
             cin >> data;
             cout << "  | Masukkan posisi (1 untuk awal, 2 untuk akhir, ";
-            cout << "\n  | atau ketik lainnya untuk sisipkan setelah kata):";
+            cout << "\n  | atau ketik angka lainnya untuk sisipkan setelah kata):";
             cout << "\n  >> ";
             int pos;
             cin >> pos;
 
+            int actualPos;
             P = createNewElement(data);
             if (pos == 1) {
                 insertFirst(L, P);
@@ -111,15 +112,26 @@ int main() {
                 cin >> predData;
                 address pred = searchCharacter(L, predData);
                 if (pred != NIL) {
+                    // Hitung posisi elemen baru berdasarkan pred
+                    address current = L.first;
+                    actualPos = 0;
+                    while (current != pred && current != NIL) {
+                        actualPos++;
+                        current = current->next;
+                    }
+
                     insertAfter(L, P, pred);
+                    actualPos++; // Elemen baru berada setelah elemen pred
                 } else {
                     cout << "  | Kata '" << predData << "' tidak ditemukan. Tambah ke akhir." << endl;
+                    actualPos = listSize(L); // Posisi sebelum elemen baru ditambahkan
                     insertLast(L, P);
                 }
             }
 
+
             // Simpan tindakan ke undo stack
-            Action action = createAction("insert", data, listSize(L));
+            Action action = createAction("insert", data, actualPos);
             push(undoStack, action);
 
             // Kosongkan redo stack
